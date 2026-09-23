@@ -1,0 +1,60 @@
+{
+	"name": "n8n-nodes-singapore-proxy",
+	"version": "0.1.0",
+	"description": "n8n node: fetch pages, run Google searches and rotate IP from a real Singapore mobile IP (Singtel or M1). Works as an AI Agent tool.",
+	"license": "MIT",
+	"homepage": "https://github.com/Xavierfok/n8n-nodes-singapore-proxy",
+	"keywords": [
+		"n8n-community-node-package",
+		"n8n",
+		"singapore",
+		"mobile-proxy",
+		"proxy",
+		"web-scraping",
+		"serp",
+		"mcp"
+	],
+	"author": {
+		"name": "Xavier Fok",
+		"email": "xavier@singaporemobileproxy.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Xavierfok/n8n-nodes-singapore-proxy.git"
+	},
+	"scripts": {
+		"build": "n8n-node build",
+		"build:watch": "tsc --watch",
+		"dev": "n8n-node dev",
+		"lint": "n8n-node lint",
+		"lint:fix": "n8n-node lint --fix",
+		"test": "n8n-node build && node --test test/node.test.js",
+		"release": "n8n-node release",
+		"prepublishOnly": "n8n-node prerelease"
+	},
+	"files": [
+		"dist",
+		"!dist/tsconfig.tsbuildinfo",
+		"!dist/**/*.map"
+	],
+	"n8n": {
+		"n8nNodesApiVersion": 1,
+		"strict": true,
+		"credentials": [
+			"dist/credentials/SingaporeProxyApi.credentials.js"
+		],
+		"nodes": [
+			"dist/nodes/SingaporeProxy/SingaporeProxy.node.js"
+		]
+	},
+	"devDependencies": {
+		"@n8n/node-cli": "*",
+		"eslint": "9.39.4",
+		"prettier": "3.8.3",
+		"release-it": "20.2.0",
+		"typescript": "5.9.3"
+	},
+	"peerDependencies": {
+		"n8n-workflow": "*"
+	}
+}
