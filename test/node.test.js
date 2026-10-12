@@ -146,3 +146,8 @@ test('execute throws on a tool error, or records it with continueOnFail', async 
 	);
 	assert.match(out[0].json.error, /API key is invalid/);
 });
+
+test('num allows only what the server returns (app/mcp/serp.py clamps to 1-20)', () => {
+	const num = new SingaporeProxy().description.properties.find((p) => p.name === 'num');
+	assert.deepEqual(num.typeOptions, { minValue: 1, maxValue: 20 });
+});
